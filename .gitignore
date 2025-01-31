@@ -2,11 +2,19 @@
 *
 
 # Allow only specific files and directories
-!wordpress/wp-content/
-!wordpress/wp-content/**
+# Allow wp-config.php file
+!wordpress/wp-config.php
 !wp-config.php
+# Allow wp-content directory and its contents
+!wordpress/wp-content/
+!wordpress/wp-content/**  
+
+## git add -f call-db/wordpress/
+## git add -f call-db/wordpress/** 
+
 !call-db/wordpress/
 !call-db/wordpress/** 
+
 !docker-compose.yml
 !.env
 
