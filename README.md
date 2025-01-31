@@ -19,6 +19,8 @@ git clone https://github.com/yourusername/wordpress_docker.git
 
 ## Then inside the directory, create Docker compose file: docker-compose.yml then copy and paste the following settings: 
 
+## I have added an .env file so this might look slightly different to the actual file.
+
 version: '3.7'
 
 services:
