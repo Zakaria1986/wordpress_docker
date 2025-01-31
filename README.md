@@ -64,87 +64,71 @@ Docker Commands Summary
 To list all running containers:
 
 ```
- docker ps
+docker_commands_summary:
+  - step: "01. Check Running Containers"
+    instructions:
+      - description: "To list all running containers:"
+        command: "docker ps"
+      - description: "To list all containers, including stopped ones:"
+        command: "docker ps -a"
 
+  - step: "02. Check Docker Images"
+    instructions:
+      - description: "To list all Docker images:"
+        command: "docker images"
+
+  - step: "03. Check Logs of a Container"
+    instructions:
+      - description: "To view logs of a container (for example, wordpress-container):"
+        command: "docker logs wordpress-container"
+
+  - step: "04. Access a Running Container's Shell"
+    instructions:
+      - description: "To access the shell of a running container (for example, wordpress-container):"
+        command: "docker exec -it wordpress-container /bin/bash"
+
+  - step: "05. Access MySQL Database Inside the Container"
+    instructions:
+      - description: "To access MySQL in a running container (for example, wordpress-db):"
+        command: "docker exec -it wordpress-db mysql -u root -p"
+      - description: "This will prompt you for the MYSQL_ROOT_PASSWORD. After entering it, you'll be inside the MySQL shell."
+      - description: "To access a specific database inside MySQL:"
+        command: "USE wordpress;"
+
+  - step: "06. Download Database Files to Local Environment"
+    instructions:
+      - description: "To copy files from a container to your local environment:"
+        command: "docker cp wordpress-db:/var/lib/mysql /path/to/local/folder"
+      - description: "This command will copy the entire MySQL database directory (/var/lib/mysql) from the wordpress-db container to your local machine."
+
+  - step: "07. Delete Docker Containers"
+    instructions:
+      - description: "To stop and remove a container:"
+        command: 
+          - "docker stop wordpress-container"
+          - "docker rm wordpress-container"
+      - description: "To stop and remove the database container:"
+        command: 
+          - "docker stop wordpress-db"
+          - "docker rm wordpress-db"
+
+  - step: "08. Delete Docker Images"
+    instructions:
+      - description: "To delete a Docker image:"
+        command: 
+          - "docker rmi wordpress:latest"
+          - "docker rmi mysql:5.7"
+
+  - step: "09. Delete Docker Volumes"
+    instructions:
+      - description: "To remove volumes (which hold persistent data, like your MySQL database):"
+        command: "docker volume rm wordpress_data db_data"
+
+  - step: "10. Download and Rebuild Containers"
+    instructions:
+      - description: "If you need to rebuild your containers with new configurations:"
+        command: 
+          - "docker-compose down"
+          - "docker-compose up --build -d"
+      - description: "This will stop and remove all containers and images, then rebuild and start them again in detached mode."
 ```
-
-To list all containers, including stopped ones:
-```docker ps -a
-
-```
-
-02. Check Docker Images
-To list all Docker images:
-` ` ` docker images``
-
-03. Check Logs of a Container
-To view logs of a container (for example, wordpress-container):
-```docker logs wordpress-container
-
-```
-
-04. Access a Running Container's Shell
-To access the shell of a running container (for example, wordpress-container):
-```docker exec -it wordpress-container /bin/bash
-
-```
-
-05. Access MySQL Database Inside the Container
-To access MySQL in a running container (for example, wordpress-db):
-```docker exec -it wordpress-db mysql -u root -p
-
-```
-
-This will prompt you for the MYSQL_ROOT_PASSWORD. After entering it, you'll be inside the MySQL shell.
-
-To access a specific database inside MySQL:
-```USE wordpress; 
-
-```
-
-06. Download Database Files to Local Environment
-To copy files from a container to your local environment:
-```docker cp wordpress-db:/var/lib/mysql /path/to/local/folder
-
-```
-
-This command will copy the entire MySQL database directory (/var/lib/mysql) from the wordpress-db container to your local machine.
-
-07. Delete Docker Containers
-To stop and remove a container:
-```docker stop wordpress-container
-
-```
-
-```docker rm wordpress-container
-
-```
-
-To stop and remove the database container:
-```docker stop wordpress-db
-
-```
-
-```docker rm wordpress-db
-
-```
-
-08. Delete Docker Images
-To delete a Docker image:
-` `  ` docker rmi wordpress:latest``
-
-```docker rmi mysql:5.7
-
-```
-
-09. Delete Docker Volumes
-To remove volumes (which hold persistent data, like your MySQL database):
-` `  ` docker volume rm wordpress_data db_data ` ``
-
-10. Download and Rebuild Containers
-If you need to rebuild your containers with new configurations:
-` `  ` docker-compose down``
-
-` `  ` docker-compose up --build -d ` ``
-
-This will stop and remove all containers and images, then rebuild and start them again in detached mode.
