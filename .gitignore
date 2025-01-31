@@ -1,0 +1,12 @@
+# Ignore everything by default
+*
+
+# Allow only specific files and directories
+!wordpress/wp-content/
+!wp-config.php
+!call-db/wordpress/
+!docker-compose.yml
+!.env
+
+# Ensure .gitignore itself is not ignored
+!.gitignore
