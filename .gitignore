@@ -2,11 +2,11 @@
 *
 
 # Allow only specific files and directories
-!/wordpress/wp-content/
+!wordpress/wp-content/
 ordpress/wp-content/**
 !wp-config.php
-!/call-db/wordpress/
-!/call-db/wordpress/** 
+!call-db/wordpress/
+!call-db/wordpress/** 
 !docker-compose.yml
 !.env
 
